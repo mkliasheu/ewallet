@@ -1,6 +1,11 @@
 ## Build
-### /MAC
+### UNIX/MAC
+```cd backend```
+
+```chmod +x gradlew```
+
 ```./gradlew docker```
+
 ### WIN
 ```gradlew docker```
 ## RUN
