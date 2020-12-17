@@ -1,0 +1,19 @@
+body {
+    font-family: Roboto, sans-serif;
+}
+
+li.MuiListItem-gutters {
+    padding-left: 0;
+}
+
+.transactions, .transaction, .wallet, .wallet-title {
+    width: 100%;
+}
+
+.float-right {
+    float: right;
+}
+
+.wallet-details-container {
+    flex-direction: column;
+}
