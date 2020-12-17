@@ -8,7 +8,7 @@ import React, {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {closeDepositDialog} from "../redux/actions";
 import {postDepositTransfer} from "../redux/api";
-import {getApiError, getSelectedWalletId, isDepositDialogOpened} from "../redux/reducer";
+import {getApiError, getSelectedWalletId, isDepositDialogOpened} from "../redux/selectors";
 
 export default function DepositDialog() {
 

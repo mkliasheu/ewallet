@@ -8,17 +8,17 @@ import React, {useEffect, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {closeP2PTransferDialog, selectReceiverWallet} from "../redux/actions";
 import {postP2PTransfer} from "../redux/api";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 import {
     getApiError,
     getSelectedReceiverWallet,
     getSelectedWalletId,
     getWallets,
     isP2PDialogOpened
-} from "../redux/reducer";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
+} from "../redux/selectors";
 
 export default function P2PTransferDialog() {
 

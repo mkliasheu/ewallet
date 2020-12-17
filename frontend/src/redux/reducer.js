@@ -1,6 +1,7 @@
 import {
     CLOSE_ADD_WALLET_DIALOG,
-    CLOSE_DEPOSIT_DIALOG, CLOSE_P2P_TRANSFER_DIALOG,
+    CLOSE_DEPOSIT_DIALOG,
+    CLOSE_P2P_TRANSFER_DIALOG,
     CLOSE_WITHDRAW_DIALOG,
     CREATE_WALLET,
     DEPOSIT_MONEY_ERROR,
@@ -10,14 +11,17 @@ import {
     FETCH_WALLETS_PENDING,
     FETCH_WALLETS_SUCCESS,
     OPEN_ADD_WALLET_DIALOG,
-    OPEN_DEPOSIT_DIALOG, OPEN_P2P_TRANSFER_DIALOG,
-    OPEN_WITHDRAW_DIALOG, P2P_TRANSFER_ERROR,
+    OPEN_DEPOSIT_DIALOG,
+    OPEN_P2P_TRANSFER_DIALOG,
+    OPEN_WITHDRAW_DIALOG,
+    P2P_TRANSFER_ERROR,
     P2P_TRANSFER_SUCCESS,
     RESET_API_ERROR,
-    SELECT_CURRENCY, SELECT_RECEIVER_WALLET,
+    SELECT_CURRENCY,
+    SELECT_RECEIVER_WALLET,
     WITHDRAW_MONEY_ERROR,
     WITHDRAW_MONEY_SUCCESS
-} from './actions';
+} from "./actionTypes";
 
 const initialState = {
     pending: false,
@@ -153,15 +157,3 @@ export function walletsReducer(state = initialState, action) {
     }
 }
 
-export const getWallets = state => state.wallets;
-export const getWalletsPending = state => state.pending;
-export const getCurrencies = state => state.availableCurrencies;
-export const getSelectedCurrency = state => state.selectedCurrency;
-export const isAddWalletDialogOpened = state => state.addWalletDialogOpened;
-export const getSelectedWalletId = state => state.selectedWalletId;
-export const isDepositDialogOpened = (state, walletId) => state.depositDialogOpened && state.selectedWalletId === walletId;
-export const isWithdrawDialogOpened = (state, walletId) => state.withdrawDialogOpened && state.selectedWalletId === walletId;
-export const isP2PDialogOpened = (state, walletId) => state.p2pTransferDialogOpened && state.selectedWalletId === walletId;
-export const getTransactions = (state, walletId) => state.wallets.find(wallet => wallet.id === walletId).transactions;
-export const getApiError = state => state.apiError;
-export const getSelectedReceiverWallet = state => state.selectedReceiverWalletId;

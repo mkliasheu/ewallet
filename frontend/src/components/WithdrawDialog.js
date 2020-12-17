@@ -8,7 +8,7 @@ import React, {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {closeWithdrawDialog} from "../redux/actions";
 import {postWithdrawalTransfer} from "../redux/api";
-import {getApiError, getSelectedWalletId, isWithdrawDialogOpened} from "../redux/reducer";
+import {getApiError, getSelectedWalletId, isWithdrawDialogOpened} from "../redux/selectors";
 
 export default function WithdrawDialog() {
 

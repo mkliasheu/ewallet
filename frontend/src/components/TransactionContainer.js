@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import {useDispatch, useSelector} from "react-redux";
-import {getTransactions} from "../redux/reducer";
 import {fetchTransactions} from "../redux/api";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Transaction from "./Transaction";
+import {getTransactions} from "../redux/selectors";
 
 export default function TransactionContainer({walletId}) {
 

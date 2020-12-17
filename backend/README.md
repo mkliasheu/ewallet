@@ -1,10 +1,10 @@
-##Build
-###UNIX/MAC
+## Build
+### /MAC
 ```./gradlew docker```
-###WIN
+### WIN
 ```gradlew docker```
-##RUN
+## RUN
 ```docker-compose up```
 
-###Docs
+### Docs
 ```http://{baseurl}/swagger-ui/``` e.g. http://localhost:8080/swagger-ui/
