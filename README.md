@@ -1,26 +1,26 @@
-#Backend
+# Backend
 
-##Build
+## Build
 
-###UNIX/MAC
+### UNIX/MAC
 
 ```./gradlew docker```
 
-###WIN
+### WIN
 
 ```gradlew docker```
 
-##RUN
+## RUN
 
 ```docker-compose up```
 
-###Docs
+### Docs
 
 ```http://{baseurl}/swagger-ui/``` e.g. http://localhost:8080/swagger-ui/
 
-#Frontend
+# Frontend
 
-##Build and run
+## Build and run
 
 ```npm install```
 
