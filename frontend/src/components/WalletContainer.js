@@ -3,7 +3,7 @@ import List from "@material-ui/core/List";
 import Wallet from "./Wallet";
 import ListItem from "@material-ui/core/ListItem";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchWallets} from "../redux/api";
+import {fetchWallets} from "../redux/apiActions";
 import DepositDialog from "./DepositDialog";
 import WithdrawDialog from "./WithdrawDialog";
 import P2PTransferDialog from "./P2PTransferDialog";

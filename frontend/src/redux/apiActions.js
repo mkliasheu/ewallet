@@ -1,10 +1,13 @@
 import {
-    createWallet,
+    closeDepositDialog,
+    closeP2PTransferDialog,
+    closeWithdrawDialog,
+    createWallet, depositMoneyError,
     depositMoneySuccess,
     fetchCurrenciesSuccess,
     fetchTransactionsSuccess,
     fetchWalletsPending,
-    fetchWalletsSuccess,
+    fetchWalletsSuccess, p2pTransferError, withdrawMoneyError,
     withdrawMoneySuccess
 } from "./actions";
 import axios from "axios";
@@ -73,10 +76,11 @@ export function postDepositTransfer(walletId, amount) {
             .then(res => {
                 //TODO update single wallet
                 dispatch(fetchWallets())
+                dispatch(closeDepositDialog())
             })
             //TODO
             .catch(error => {
-                // dispatch(depositMoneyError(error.response.data.message))
+                dispatch(depositMoneyError(error.response.data.message))
             })
     }
 }
@@ -91,10 +95,11 @@ export function postWithdrawalTransfer(walletId, amount) {
             .then(res => {
                 //TODO update single wallet
                 dispatch(fetchWallets())
+                dispatch(closeWithdrawDialog())
             })
             //TODO
             .catch(error => {
-                // dispatch(withdrawMoneyError(error.response.data.message))
+                dispatch(withdrawMoneyError(error.response.data.message))
             })
     }
 }
@@ -110,10 +115,11 @@ export function postP2PTransfer(walletIdFrom, walletIdTo, amount) {
             .then(res => {
                 //TODO update single wallet
                 dispatch(fetchWallets())
+                dispatch(closeP2PTransferDialog())
             })
             //TODO
             .catch(error => {
-                // dispatch(p2pTransferError(error.response.data.message))
+                dispatch(p2pTransferError(error.response.data.message))
             })
     }
 }

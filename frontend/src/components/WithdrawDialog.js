@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
 import React, {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {closeWithdrawDialog} from "../redux/actions";
-import {postWithdrawalTransfer} from "../redux/api";
+import {closeWithdrawDialog, resetApiError} from "../redux/actions";
+import {postWithdrawalTransfer} from "../redux/apiActions";
 import {getApiError, getSelectedWalletId, isWithdrawDialogOpened} from "../redux/selectors";
 
 export default function WithdrawDialog() {
@@ -20,15 +20,13 @@ export default function WithdrawDialog() {
     const withdrawAmountInputRef = useRef();
 
     const handleClose = () => {
-        // dispatch(resetApiError());
+        dispatch(resetApiError());
         dispatch(closeWithdrawDialog());
     };
 
     const handleConfirm = () => {
         dispatch(postWithdrawalTransfer(selectedWalletId, withdrawAmountInputRef.current.value));
-        if (apiError == null) {
-            handleClose()
-        }
+        dispatch(resetApiError());
     }
 
     return (
@@ -51,7 +49,7 @@ export default function WithdrawDialog() {
                         fullWidth
                         inputRef={withdrawAmountInputRef}
                     />
-                    {/*{apiError != null ? <span className="error">{apiError}</span> : ''}*/}
+                    {apiError != null ? <span className="error">{apiError}</span> : ''}
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">

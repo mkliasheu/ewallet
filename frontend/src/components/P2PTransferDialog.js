@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
 import React, {useEffect, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {closeP2PTransferDialog, selectReceiverWallet} from "../redux/actions";
-import {postP2PTransfer} from "../redux/api";
+import {closeP2PTransferDialog, resetApiError, selectReceiverWallet} from "../redux/actions";
+import {postP2PTransfer} from "../redux/apiActions";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -32,15 +32,13 @@ export default function P2PTransferDialog() {
     const transferAmountInputRef = useRef();
 
     const handleClose = () => {
-        // dispatch(resetApiError());
+        dispatch(resetApiError());
         dispatch(closeP2PTransferDialog());
     };
 
     const handleConfirm = () => {
         dispatch(postP2PTransfer(selectedWalletId, receiverWallet, transferAmountInputRef.current.value));
-        if (apiError == null) {
-            handleClose();
-        }
+        dispatch(resetApiError());
     }
 
     const handleReceiverWalletChange = (event) => {
@@ -89,7 +87,7 @@ export default function P2PTransferDialog() {
                         fullWidth
                         inputRef={transferAmountInputRef}
                     />
-                    {/*{apiError != null ? <span className="error">{apiError}</span> : ''}*/}
+                    {apiError != null ? <span className="error">{apiError}</span> : ''}
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">

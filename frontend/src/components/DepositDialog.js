@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
 import React, {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {closeDepositDialog} from "../redux/actions";
-import {postDepositTransfer} from "../redux/api";
+import {closeDepositDialog, resetApiError} from "../redux/actions";
+import {postDepositTransfer} from "../redux/apiActions";
 import {getApiError, getSelectedWalletId, isDepositDialogOpened} from "../redux/selectors";
 
 export default function DepositDialog() {
@@ -20,15 +20,13 @@ export default function DepositDialog() {
     const depositAmountInputRef = useRef();
 
     const handleClose = () => {
-        // dispatch(resetApiError());
+        dispatch(resetApiError());
         dispatch(closeDepositDialog());
     };
 
     const handleConfirm = () => {
         dispatch(postDepositTransfer(selectedWalletId, depositAmountInputRef.current.value));
-        if (apiError == null) {
-            handleClose()
-        }
+        dispatch(resetApiError());
     }
 
     return (
@@ -51,7 +49,7 @@ export default function DepositDialog() {
                         fullWidth
                         inputRef={depositAmountInputRef}
                     />
-                    {/*{apiError != null ? <span className="error">{apiError}</span> : ''}*/}
+                    {apiError != null ? <span className="error">{apiError}</span> : ''}
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">

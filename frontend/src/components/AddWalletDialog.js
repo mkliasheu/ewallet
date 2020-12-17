@@ -11,7 +11,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import {useDispatch, useSelector} from "react-redux";
 import {closeAddWalletDialog, openAddWalletDialog, selectCurrency} from "../redux/actions";
-import {fetchCurrencies, postWallet} from "../redux/api";
+import {fetchCurrencies, postWallet} from "../redux/apiActions";
 import {getCurrencies, getSelectedCurrency, isAddWalletDialogOpened} from "../redux/selectors";
 
 export default function AddWalletDialog() {
