@@ -7,4 +7,4 @@
 ```docker-compose up```
 
 ###Docs
-```http://{baseurl}/swagger-ui.html``` e.g. http://localhost:8080/swagger-ui.html
+```http://{baseurl}/swagger-ui/``` e.g. http://localhost:8080/swagger-ui/

@@ -1,8 +1,8 @@
 package by.kliasheu.ewallet.api.service.impl;
 
-import by.kliasheu.ewallet.api.dto.NewP2PTransactionRequest;
-import by.kliasheu.ewallet.api.dto.NewTransactionRequest;
-import by.kliasheu.ewallet.api.dto.TransactionDto;
+import by.kliasheu.ewallet.api.dto.transaction.NewP2PTransactionRequest;
+import by.kliasheu.ewallet.api.dto.transaction.NewTransactionRequest;
+import by.kliasheu.ewallet.api.dto.transaction.TransactionDto;
 import by.kliasheu.ewallet.api.exception.NotEnoughFundsException;
 import by.kliasheu.ewallet.api.model.TransactionType;
 import by.kliasheu.ewallet.api.model.Wallet;
@@ -93,7 +93,7 @@ public class DefaultTransferGateway implements TransferGateway {
     }
 
     @Override
-    public List<TransactionDto> findAll() {
-        return transactionService.findAll();
+    public List<TransactionDto> findByWalletId(long walletId) {
+        return transactionService.findByWalletId(walletId);
     }
 }

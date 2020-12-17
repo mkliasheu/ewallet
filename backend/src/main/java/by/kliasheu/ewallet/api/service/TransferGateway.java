@@ -1,8 +1,8 @@
 package by.kliasheu.ewallet.api.service;
 
-import by.kliasheu.ewallet.api.dto.NewP2PTransactionRequest;
-import by.kliasheu.ewallet.api.dto.NewTransactionRequest;
-import by.kliasheu.ewallet.api.dto.TransactionDto;
+import by.kliasheu.ewallet.api.dto.transaction.NewP2PTransactionRequest;
+import by.kliasheu.ewallet.api.dto.transaction.NewTransactionRequest;
+import by.kliasheu.ewallet.api.dto.transaction.TransactionDto;
 import by.kliasheu.ewallet.api.model.Wallet;
 import org.springframework.data.util.Pair;
 
@@ -20,5 +20,5 @@ public interface TransferGateway {
 
     Pair<TransactionDto, TransactionDto> transfer(NewP2PTransactionRequest newP2PTransactionRequest);
 
-    List<TransactionDto> findAll();
+    List<TransactionDto> findByWalletId(long walletId);
 }

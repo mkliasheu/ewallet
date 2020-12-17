@@ -1,4 +1,4 @@
-package by.kliasheu.ewallet.api.dto;
+package by.kliasheu.ewallet.api.dto.transaction;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -10,7 +10,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class NewTransactionRequest {
-    long walletId;
+public class NewP2PTransactionRequest {
+    long walletIdFrom;
+    long walletIdTo;
     BigDecimal amount;
 }

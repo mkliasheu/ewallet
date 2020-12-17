@@ -12,6 +12,8 @@ import by.kliasheu.ewallet.api.service.WalletService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -30,7 +32,7 @@ public class DefaultWalletService implements WalletService {
 
     @Override
     public List<WalletDto> findAll() {
-        return walletRepository.findAll().stream()
+        return walletRepository.findAll(Sort.by("id").ascending()).stream()
                 .map(walletMapper::toDto)
                 .collect(Collectors.toList());
     }

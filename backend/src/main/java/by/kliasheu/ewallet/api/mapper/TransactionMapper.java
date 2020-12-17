@@ -1,7 +1,7 @@
 package by.kliasheu.ewallet.api.mapper;
 
-import by.kliasheu.ewallet.api.dto.NewTransactionRequest;
-import by.kliasheu.ewallet.api.dto.TransactionDto;
+import by.kliasheu.ewallet.api.dto.transaction.NewTransactionRequest;
+import by.kliasheu.ewallet.api.dto.transaction.TransactionDto;
 import by.kliasheu.ewallet.api.model.Transaction;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -15,6 +15,7 @@ public interface TransactionMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "wallet", ignore = true)
     @Mapping(target = "type", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
     Transaction toEntity(NewTransactionRequest newTransactionRequest);
 
     @Mapping(target = "id", ignore = true)

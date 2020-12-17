@@ -30,12 +30,12 @@ public class WalletController {
     }
 
     @PostMapping("/wallets")
-    public ResponseEntity<WalletDto> create(NewWalletRequest newWalletRequest) {
+    public ResponseEntity<WalletDto> create(@RequestBody NewWalletRequest newWalletRequest) {
         return ResponseEntity.ok(walletService.create(newWalletRequest));
     }
 
     @PatchMapping("/wallets/{id}")
-    public ResponseEntity<WalletDto> update(UpdateWalletRequest updateWalletRequest, @PathVariable long id) {
+    public ResponseEntity<WalletDto> update(@RequestBody UpdateWalletRequest updateWalletRequest, @PathVariable long id) {
         return ResponseEntity.ok(walletService.update(updateWalletRequest, id));
     }
 }
